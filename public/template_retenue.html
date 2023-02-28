@@ -1,0 +1,363 @@
+<!doctype html>
+<html>
+
+
+<head>
+
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <style>
+        body {
+            margin: 1in 0.7in 0in 0.7in;
+        }
+
+        .table_cell {
+            border: .15em solid;
+            padding: 3px;
+            font-size: 10px;
+            text-align: center;
+            height: 15px;
+        }
+
+        .bigTableCell {
+            border: 1px solid;
+            padding: 5px;
+        }
+
+        .header_flex {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            margin-bottom: 7%
+        }
+
+        .header_div {
+            text-align: center;
+        }
+
+        .main_style {
+            border: 1px solid;
+            padding-top: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .main_div {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            width: 100%;
+        }
+
+        .table_style_1 {
+            border: 1px solid;
+            border-collapse: collapse;
+            width: 50%
+        }
+
+        .info_payeur {
+            margin-top: 10px;
+        }
+
+        .flex_info_payeur {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            gap: 10px
+        }
+
+        .table_style_2 {
+            border: 1px solid;
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .div_benef {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            width: 100%;
+        }
+
+        .table_style_3 {
+            border: 1px solid;
+            border-collapse: collapse;
+            width: 50%
+        }
+
+        .info_benef_div {
+            margin-top: 10px;
+        }
+
+        .div_id_benef {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            gap: 10px;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .flex_id_benef {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .total_general_class {
+            text-align: right;
+            border-left: hidden !important;
+            border-bottom: hidden !important
+        }
+
+        .retenue_titre {
+            text-align: start
+        }
+
+        .nom_retenue {
+            padding-bottom: 50px;
+        }
+
+        .border_id {
+            border: 1px solid;
+            border-collapse: unset;
+            padding: 7px;
+        }
+
+        .footer {
+            padding: 0 25%;
+            text-align: center;
+            font-size: 12px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .qr_flex {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            margin-bottom: 7%
+        }
+    </style>
+</head>
+
+<body style="zoom:60%">
+    <header class="header_flex">
+        <div class="header_div">
+            <h5>CERTIFICAT DE RETENUE D'IMPÔT</h5>
+            <h5>SUR LE REVENU</h5>
+            <h5>OU D'IMPÔT SUR LES SOCIETES</h5>
+        </div>
+
+        <div class="header_div">
+            <p style="font-size:14px">Ce certificat est généré par</p>
+            <p style="font-size:14px">www.retenues.tn</p>
+            <img src="data:image/png;base64,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" width="50" height="50">
+        </div>
+       
+    </header>
+
+    <div style="text-align:center;margin-bottom: 50px;" >
+        <p style="font-size: 35px">N° {{numero}}</p>
+        <p style="font-size: 28px">Retenue effectuée le {{date}}</p>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <div class="main_style">
+
+        <h4>A.- PERSONNE OU ORGANISME PAYEUR</h4>
+
+
+        <div class="main_div">
+
+
+            <table class="table_style_1">
+                <thead>
+                    <tr>
+                        <th class="table_cell" style="width:120px"><span>Matricule
+                                fiscal</span></th>
+                        <th class="table_cell" style="width:30px"><span>Code
+                                T.V.A</span></th>
+                        <th class="table_cell" style="width:30px"><span>Code
+                                catégorie</span></th>
+                        <th class="table_cell" style="width:30px"><span>N° Etab.
+                                Sec.</span></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td class="table_cell" style="font-size:18px">{{mf_payeur}}</td>
+                        <td class="table_cell" style="font-size:18px">{{tva_payeur}}</td>
+                        <td class="table_cell" style="font-size:18px">{{categorie_payeur}}</td>
+                        <td class="table_cell" style="font-size:18px">{{etab_payeur}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="info_payeur">
+            <div class="flex_info_payeur">
+                <p>Raison sociale :</p>
+                <p>&nbsp;&nbsp;<b>{{nom_payeur}}</b></p>
+            </div>
+            <div class="flex_info_payeur">
+                <p>Adresse professionnelle :</p>
+                <p>&nbsp;&nbsp;<b>{{adresse_payeur}}</b></p>
+            </div>
+        </div>
+
+
+        <table class="table_style_2">
+            <thead>
+                <tr>
+                    <th class="bigTableCell" class="retenue_titre"><span><b>B.-RETENUES EFFECTUEES SUR</b></span>
+                    </th>
+                    <th class="bigTableCell"><span>MT Brut</span></th>
+                    <th class="bigTableCell"><span>Retenue</span></th>
+                    <th class="bigTableCell"><span>MT Net</span></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#list_retenue}}
+                <tr>
+                    <td class="bigTableCell" class="nom_retenue">{{nom}}</td>
+                    <td class="bigTableCell" style="text-align:right">{{mt_brut}}</td>
+                    <td class="bigTableCell" style="text-align:right">{{retenue}}</td>
+                    <td class="bigTableCell" style="text-align:right">{{mt_net}}</td>
+                </tr>
+                {{/list_retenue}}
+                <tr>
+                    <td class="total_general_class">Total Général&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td class="bigTableCell" style="text-align:right"><b>{{mt_brut_total}}</b></td>
+                    <td class="bigTableCell" style="text-align:right"><b>{{retenue_total}}</b></td>
+                    <td class="bigTableCell" style="text-align:right"><b>{{mt_net_total}}</b></td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <div>
+
+            <h4>C.- BENEFICIAIRE</h4>
+
+            {{#mf_benef}}
+            <div class="div_benef">
+
+                <table class="table_style_3">
+                    <thead>
+                        <tr>
+                            <th class="table_cell" style="width:120px"><span>Matricule
+                                    fiscal</span></th>
+                            <th class="table_cell" style="width:30px"><span>Code
+                                    T.V.A</span></th>
+                            <th class="table_cell" style="width:30px"><span>Code
+                                    catégorie</span></th>
+                            <th class="table_cell" style="width:30px"><span>N° Etab.
+                                    Sec.</span></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td class="table_cell" style="font-size:18px">{{mf_benef}}</td>
+                            <td class="table_cell" style="font-size:18px">{{tva_benef}}</td>
+                            <td class="table_cell" style="font-size:18px">{{categorie_benef}}</td>
+                            <td class="table_cell" style="font-size:18px">{{etab_benef}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            {{/mf_benef}}
+
+            {{^mf_benef}}
+            <div class="info_benef_div">
+                <div class="div_id_benef">
+                    <p>N° de la carte d'identité nationale ou de séjour pour les étrangers :&nbsp;&nbsp;&nbsp;</p>
+                    <div>
+
+                        <div class="flex_id_benef">
+                            <div class="border_id">{{cin_benef_0}}</div>
+                            <div class="border_id">{{cin_benef_1}}</div>
+                            <div class="border_id">{{cin_benef_2}}</div>
+                            <div class="border_id">{{cin_benef_3}}</div>
+                            <div class="border_id">{{cin_benef_4}}</div>
+                            <div class="border_id">{{cin_benef_5}}</div>
+                            <div class="border_id">{{cin_benef_6}}</div>
+                            <div class="border_id">{{cin_benef_7}}</div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                {{/mf_benef}}
+
+                {{#mf_benef}}
+                <div class="flex_info_payeur">
+                    <p>Raison sociale :</p>
+                    <p>&nbsp;&nbsp;<b>{{nom_benef}}</b></p>
+                </div>
+
+                <div class="flex_info_payeur">
+                    <p>Adresse professionnelle :</p>
+                    <p>&nbsp;&nbsp;<b>{{adresse_benef}}</b></p>
+                </div>
+            </div>
+            {{/mf_benef}}
+
+            {{^mf_benef}}
+            <div class="flex_info_payeur">
+                <p>Nom et prénoms :</p>
+                <p>&nbsp;&nbsp;<b>{{nom_benef}}</b></p>
+            </div>
+
+            <div class="flex_info_payeur">
+                <p>Adresse professionnelle :</p>
+                <p>&nbsp;&nbsp;<b>{{adresse_benef}}</b></p>
+            </div>
+            {{/mf_benef}}
+
+
+        </div>
+    </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <footer class="footer">
+        <p>Je soussigné, certifie exacts les renseignements figurant sur le présent certification
+            et m'expose aux sanctions prévues par la loi pour toute inexactitude
+        </p>
+
+
+        <p><b>A {{lieu}} le {{date_retenue}}</b></p>
+
+        <p>Cachet et signature du payeur</p>
+    </footer>
+
+</body>
+
+</html>
